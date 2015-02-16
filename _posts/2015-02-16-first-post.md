@@ -1,6 +1,6 @@
 ---
 layout: post_page
-title: Blogging- Jekyll and GitHub Pages
+title: Blog using Jekyll and GitHub Pages
 ---
 
 <h4>What is Jekyll -</h4>
@@ -65,4 +65,4 @@ Your setup is done. Try to access <b><i>http://username.github.io/</i>
 <BR>
 <BR>	
 <h4>Customizing Jekyll -</h4>
-You can change jekyll themes which re supported. Coming up..
+You can change jekyll themes which are supported. Coming up..
