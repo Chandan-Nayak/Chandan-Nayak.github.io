@@ -3,6 +3,10 @@ layout: post_page
 title: Blog using Jekyll and GitHub Pages
 ---
 
+This was <b>The perfect sunday</b> watching India vs Pakistand and i was sitting infornt of the screen watching the match wondering if i could use this time to do something while watching the match. I had my newly purchased mac book pro on my lap which was tempting me to type some thing on terminal. I had this idea of starting a blog site of my own and i had already invested some time with blogger and wordpress and i was not convincted as i was searching for some simple way of just putting the text on the page which shall speak for itself not the design or the features. 
+
+I was going through github explore feature and i landed up on a site which said username.github.io and it was a blog, i started searching more on this and i could finish setting up my blogging site using jkelly and githubpages by the time the match was over. I was happy because i was able to create and edit posts from my termianl. To add to the perfect sunday India won the match. I thought to write this post because my frined wanted to know how to get this stuff done ..
+
 <h4>What is Jekyll -</h4>
 
 Jekyll is a parsing engine bundled as a ruby gem used to build static websites from dynamic components such as templates, partials, liquid code, markdown, etc. Jekyll is known as "a simple, blog aware, static site generator". Jekyll takes away the complexity and configuration to allow you on the content - which matters most. For more info <a href="http://jekyllrb.com/docs/home/">http://jekyllrb.com/docs/home/</a>
