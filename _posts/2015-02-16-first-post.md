@@ -50,7 +50,6 @@ $ gem install jekyll
 		<li>
 		Run these commands
 	{% highlight ruby %}
-$ cd username.github.io 
 $ jekyll serve
 	{% endhighlight %}
 	</li>
