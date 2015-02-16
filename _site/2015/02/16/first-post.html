@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8"/>
+		<title> Blogging- Jekyll and GitHub Pages  - Vanilla Bean Creme</title>
+		<!-- For responsive site
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		-->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<link rel="author" href="/humans.txt">
+		<meta name="description" content="Description Goes Here">
+		<link rel="stylesheet" href="/css/style.css">
+		<!--[if IE 7]>
+			<html class="ie7"> 
+			<link rel="stylesheet" type="text/css" href="/css/font-awesome-ie7.min.css">
+		<![endif]-->
+		<!--[if IE 8]><html class="ie8"> <![endif]-->		
+	    <!--[if lt IE 9]>
+	      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	    <![endif]-->
+
+		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="ico/apple-touch-icon-144-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="ico/apple-touch-icon-114-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="ico/apple-touch-icon-72-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" href="ico/apple-touch-icon-57-precomposed.png">
+		<link rel="shortcut icon" href="ico/favicon.png">	    
+	</head>
+	<body>
+	<!-- Header
+	    ================================================== -->
+	<header>
+	
+	</header>
+
+	<div class="top-strip"></div>
+<main class="content">
+    <section class="container">
+    	<div class="row-fluid">
+    		<article class="home-icon">
+				<a href="/">
+					<i class="icon-home"></i> 
+				</a>
+			</article>
+			<article class="post">
+				<h5>16 February 2015</h5>
+				<h2 class="content">Blogging- Jekyll and GitHub Pages</h2>
+				<section>
+					<h4>What is Jekyll -</h4>
+
+<p>Jekyll is a parsing engine bundled as a ruby gem used to build static websites from dynamic components such as templates, partials, liquid code, markdown, etc. Jekyll is known as “a simple, blog aware, static site generator”. Jekyll takes away the complexity and configuration to allow you on the content - which matters most. For more info <a href="http://jekyllrb.com/docs/home/">http://jekyllrb.com/docs/home/</a></p>
+
+<h4>Why Jekyll for Blog -</h4>
+
+<ol>
+  <li>It is Static, So faster and lighter</li>
+  <li>More secure by avoiding dynamic front-end</li>
+  <li>No server-side language nor database</li>
+  <li>No heavy stack to manage</li>
+  <li>You do not need a heavy blogging editor, simple plain text editor,VIM or even terminal will do</li>
+  <li>Manage with git,github and you do not have to worry about SCM</li>
+  <li>Simplest deployment - change plain files &gt; commit &gt; push and you are done !!</li>
+</ol>
+<p><br /></p>
+<h4>Configuration Steps -</h4>
+<ol type="1">
+	<li>
+	Install Ruby on your machine - For Mac Ruby is already installed
+	
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="err">$</span> <span class="n">ruby</span> <span class="o">-</span><span class="n">v</span>
+<span class="n">ruby</span> <span class="mi">2</span><span class="o">.</span><span class="mi">1</span><span class="o">.</span><span class="mi">4</span><span class="n">p265</span> <span class="p">(</span><span class="mi">2014</span><span class="o">-</span><span class="mi">10</span><span class="o">-</span><span class="mi">27</span> <span class="n">revision</span> <span class="mi">48166</span><span class="p">)</span> <span class="o">[</span><span class="n">x86_64</span><span class="o">-</span><span class="n">darwin12</span><span class="o">.</span><span class="mi">0</span><span class="o">]</span></code></pre></div>
+
+	</li>
+
+	<li>
+	Go to your <a href="https://github.com">https://github.com/</a> and create a new repository named username.github.io
+	</li>
+	<li>
+		Run these commands
+	
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="err">$</span> <span class="n">git</span> <span class="nb">clone</span> <span class="ss">https</span><span class="p">:</span><span class="sr">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">plusjade</span><span class="o">/</span><span class="n">jekyll</span><span class="o">-</span><span class="n">bootstrap</span><span class="o">.</span><span class="n">git</span> <span class="n">username</span><span class="o">.</span><span class="n">github</span><span class="o">.</span><span class="n">io</span>
+<span class="err">$</span> <span class="n">cd</span> <span class="n">username</span><span class="o">.</span><span class="n">github</span><span class="o">.</span><span class="n">io</span></code></pre></div>
+
+	</li>
+	<li>
+		If you want to change or check the content locally you will need to install jekelly gem
+		
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="err">$</span> <span class="n">gem</span> <span class="n">install</span> <span class="n">jekyll</span></code></pre></div>
+	
+	</li>
+		<li>
+		Run these commands
+	
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="err">$</span> <span class="n">cd</span> <span class="n">username</span><span class="o">.</span><span class="n">github</span><span class="o">.</span><span class="n">io</span> 
+<span class="err">$</span> <span class="n">jekyll</span> <span class="n">serve</span></code></pre></div>
+
+	</li>
+	<li>
+		After running jekyll serve you should be able to see your changes at <a href="http://localhost:4000">http://localhost:4000</a>
+	</li>
+	<li>
+		If all looks good push the changes to github
+	
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="err">$</span> <span class="n">git</span> <span class="n">push</span> <span class="n">origin</span> <span class="n">master</span></code></pre></div>
+
+	</li>
+</ol>
+
+<p>Your setup is done. Try to access <b><i>http://username.github.io/</i>
+<br />
+<br />	</b></p>
+<h4>Customizing Jekyll -</h4>
+<p>You can change jekyll themes which re supported. Coming up..</p>
+
+					<hr>
+				</section>
+				<section style="font-weight:bold; margin-bottom: 2em;">
+					 
+							<a rel="prev" class="a-hover"href="/2013/02/08/firstpost.html"><i class="icon-double-angle-left"></i> Lorem</a>
+						
+						
+				</section>
+			</article>
+		</div>
+	</section>
+</main>
+
+
+	<footer>
+		<div class="container">
+			<a href="http://richbray.me/frap/">Chandan</a> | Copyright or profile stuff goes here
+		</div>
+	</footer>
+
+	<!-- Footer
+	    ================================================== -->
+
+	<!-- Javascripts 
+	    ================================================= -->
+	<script src="/js/jquery.min.js"></script>
+	<script src="/js/custom.js"></script>
+
+    <!-- Analytics
+    ================================================== -->
+    <script>
+		// analytics code
+    </script>	
+	</body>
+</html>
