@@ -23,16 +23,73 @@
 		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="ico/apple-touch-icon-114-precomposed.png">
 		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="ico/apple-touch-icon-72-precomposed.png">
 		<link rel="apple-touch-icon-precomposed" href="ico/apple-touch-icon-57-precomposed.png">
-		<link rel="shortcut icon" href="ico/favicon.png">	    
+		<link rel="shortcut icon" href="ico/favicon.png">	
+
+	<style>
+
+		header{text-align: center;}
+
+		.btn{
+			font-size: 12px;
+			line-height: 0.8;
+			border-radius: 3px;color: #333;
+			background-color: #fff;
+			border-color: #ccc;display: inline-block;text-align: center;
+			white-space: nowrap;
+			vertical-align: middle;
+			cursor: pointer;
+			border: 1px solid transparent;
+			margin-top: 5px;
+			margin-left: 2px;
+		}
+
+		.btn i:before{
+			content: " ";
+			display: inline-block;
+			width: 24px;
+			height: 24px;
+		}
+
+		.fa-envelope:before {
+			background: url(/ico/e_mail.png);
+		}
+
+		.fa-twitter:before {
+			background: url(/ico/twitter.png);
+		}
+
+		.fa-github:before {
+			background: url(/ico/github.png);
+		}
+
+		.top-strip{height:5px;}
+	</style>    
 	</head>
 	<body>
 	<!-- Header
 	    ================================================== -->
 	<header>
 	
+      
+      
+      <a type="button" class="btn" href="http://github.com/chandan-nayak">
+        <i class="fa fa-github"></i>
+      </a>
+      
+      
+      <a type="button" class="btn" href="http://twitter.com/cnayak83">
+        <i class="fa fa-twitter"></i>
+      </a>
+      
+      
+      <a type="button" class="btn" href="mailto:chandan.phoenix@gmail.com">
+        <i class="fa fa-envelope"></i>
+      </a>
+      
 	</header>
+	
 
-	<div class="top-strip"></div>
+  <div class="top-strip"></div>
 <main class="content">
     <section class="container">
     	<div class="row-fluid">
@@ -46,13 +103,13 @@
 				<h2 class="content">Blog using Jekyll and GitHub Pages</h2>
 				<section>
 					<p>
-This was <b>The perfect sunday</b> watching India vs Pakistand and i was sitting infornt of the screen watching the match wondering if i could use this time to do something while watching the match. I had my newly purchased mac book pro on my lap which was tempting me to type some thing on terminal. I had this idea of starting a blog site of my own and i had already invested some time with blogger and wordpress and i was not convinced as i was searching for some simple way of just putting the text on the page which shall speak for itself not the design or the feature. 
+This was <b>The perfect sunday</b> watching India vs Pakistand and i was sitting infornt of the screen watching the match wondering if i could use this time to do something while watching the match. I had my newly purchased mac book pro on my lap which was tempting me to type some thing on terminal. I had this idea of starting a blog site of my own and i had already invested some time with blogger and wordpress and i was not convinced as i was searching for a simple way to just putting the text on the page which shall speak for itself not the design or the feature. 
 </p>
-<p>I was going through the github explore feature and i landed up on a site which said username.github.io and it was a nice blog, i started searching more on this and i could finish setting up my blogging site using jkelly and githubpages by the time the match was over. I was happy because i was able to create and edit posts from my termianl. To add to the perfect sunday-India won the match. I thought to write this post because my frined wanted to know how to get this stuff done ..</p>
+<p>I was going through the github explore feature and i landed up on a site which said username.github.io and it was a nice blog, i started searching more on this and i could finish setting up my blogging site using jkelly and githubpages by the time the match was over. I was happy because i was able to create and edit posts from my termianl. To add to the perfect sunday-India won the match. I thought to write this post because my frineds wanted to know how to get this stuff done ..</p>
 
 <h4>What is Jekyll -</h4>
 
-<p>Jekyll is a parsing engine bundled as a ruby gem used to build static websites from dynamic components such as templates, partials, liquid code, markdown, etc. Jekyll is known as “a simple, blog aware, static site generator”. Jekyll takes away the complexity and configuration to allow you on the content - which matters most. Github used jekyll to render their pages. For more info <a href="http://jekyllrb.com/docs/home/">http://jekyllrb.com/docs/home/</a></p>
+<p>Jekyll is a parsing engine bundled as a ruby gem used to build static websites from dynamic components such as templates, partials, liquid code, markdown, etc. Jekyll is known as “a simple, blog aware, static site generator”. Jekyll takes away the complexity and configuration to allow you to focus on the content - which matters most. Github uses jekyll to render their pages. For more info <a href="http://jekyllrb.com/docs/home/">http://jekyllrb.com/docs/home/</a></p>
 
 <h4>Why Jekyll for Blog -</h4>
 
@@ -95,8 +152,7 @@ This was <b>The perfect sunday</b> watching India vs Pakistand and i was sitting
 		<li>
 		Run these commands
 	
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="err">$</span> <span class="n">cd</span> <span class="n">username</span><span class="o">.</span><span class="n">github</span><span class="o">.</span><span class="n">io</span> 
-<span class="err">$</span> <span class="n">jekyll</span> <span class="n">serve</span></code></pre></div>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="err">$</span> <span class="n">jekyll</span> <span class="n">serve</span></code></pre></div>
 
 	</li>
 	<li>
@@ -120,7 +176,7 @@ This was <b>The perfect sunday</b> watching India vs Pakistand and i was sitting
 				</section>
 				<section style="font-weight:bold; margin-bottom: 2em;">
 					 
-							<a rel="prev" class="a-hover"href="/2013/02/08/firstpost.html"><i class="icon-double-angle-left"></i> Lorem</a>
+							<a rel="prev" class="a-hover"href="/2015/02/14/second-post.html"><i class="icon-double-angle-left"></i> demo data</a>
 						
 						
 				</section>

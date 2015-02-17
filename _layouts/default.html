@@ -23,16 +23,73 @@
 		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="ico/apple-touch-icon-114-precomposed.png">
 		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="ico/apple-touch-icon-72-precomposed.png">
 		<link rel="apple-touch-icon-precomposed" href="ico/apple-touch-icon-57-precomposed.png">
-		<link rel="shortcut icon" href="ico/favicon.png">	    
+		<link rel="shortcut icon" href="ico/favicon.png">	
+
+	<style>
+
+		header{text-align: center;}
+
+		.btn{
+			font-size: 12px;
+			line-height: 0.8;
+			border-radius: 3px;color: #333;
+			background-color: #fff;
+			border-color: #ccc;display: inline-block;text-align: center;
+			white-space: nowrap;
+			vertical-align: middle;
+			cursor: pointer;
+			border: 1px solid transparent;
+			margin-top: 5px;
+			margin-left: 2px;
+		}
+
+		.btn i:before{
+			content: " ";
+			display: inline-block;
+			width: 24px;
+			height: 24px;
+		}
+
+		.fa-envelope:before {
+			background: url(/ico/e_mail.png);
+		}
+
+		.fa-twitter:before {
+			background: url(/ico/twitter.png);
+		}
+
+		.fa-github:before {
+			background: url(/ico/github.png);
+		}
+
+		.top-strip{height:5px;}
+	</style>    
 	</head>
 	<body>
 	<!-- Header
 	    ================================================== -->
 	<header>
 	
+      
+      {% if site.author.github %}
+      <a type="button" class="btn" href="http://github.com/{{ site.author.github }}">
+        <i class="fa fa-github"></i>
+      </a>
+      {% endif %}
+      {% if site.author.twitter %}
+      <a type="button" class="btn" href="http://twitter.com/{{ site.author.twitter }}">
+        <i class="fa fa-twitter"></i>
+      </a>
+      {% endif %}
+      {% if site.author.email %}
+      <a type="button" class="btn" href="mailto:{{ site.author.email }}">
+        <i class="fa fa-envelope"></i>
+      </a>
+      {% endif %}
 	</header>
+	
 
-	{{ content }}
+  {{ content }}
 
 	<footer>
 		<div class="container">
