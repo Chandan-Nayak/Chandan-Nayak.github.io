@@ -90,4 +90,4 @@ Run Jekyll serve to check the changes
 $ jekyll serve
 	{% endhighlight %}
 
-Push the changes once you are done with the changes and you are done !
+Push the changes once you are happy with the changes and you are done !
