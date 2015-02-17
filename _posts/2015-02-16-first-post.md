@@ -2,6 +2,7 @@
 layout: post_page
 title: Blog using Jekyll and GitHub Pages
 ---
+
 <p>
 This was <b>The perfect sunday</b> watching India vs Pakistand and i was sitting infornt of the screen watching the match wondering if i could use this time to do something while watching the match. I had my newly purchased mac book pro on my lap which was tempting me to type some thing on terminal. I had this idea of starting a blog site of my own and i had already invested some time with blogger and wordpress and i was not convinced as i was searching for a simple way to just putting the text on the page which shall speak for itself not the design or the feature. 
 </p>
@@ -68,4 +69,18 @@ Yes, your setup is done. Try to access <b><i>http://username.github.io/</i> :)
 <BR>
 <BR>	
 <h4>Customizing Jekyll -</h4>
-You can change jekyll themes which are supported. Coming up..
+
+You can change jekyll themes which are supported. To install a new jekyll theme you can use therake tool. Rake is a tool you can use with Ruby projects. It allows you to use ruby code to define "tasks" that can be run in the command line.
+
+If you like any of the supported themes download it using the command: 
+
+	{% highlight ruby %}
+$ rake theme:install git="rake theme:install git="https://github.com/jekyll-bootstrap-3/bootstrap-theme""
+	{% endhighlight %}
+
+If you already have a bunch of themes and you want to switch to one use the command:
+
+	{% highlight ruby %}
+$ rake theme:switch name="theme-name"
+	{% endhighlight %}
+
