@@ -84,3 +84,10 @@ If you already have a bunch of themes and you want to switch to one use the comm
 $ rake theme:switch name="theme-name"
 	{% endhighlight %}
 
+Run Jekyll serve to check the changes
+
+	{% highlight ruby %}
+$ jekyll serve
+	{% endhighlight %}
+
+Push the changes once you are done with the changes and you are done !
