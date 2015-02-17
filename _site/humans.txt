@@ -1,6 +1,6 @@
 /* TEAM */
                             
-Your title: Title.                        
+Your title: Chandan nayak                      
 Site: email, link to a contact form, etc.                         
 Twitter: chandan83.                        
 Location: Pune, India.
@@ -8,8 +8,7 @@ Location: Pune, India.
 
 /* THANKS */
 
-HTML5 Muffin
-This is a Frappuccino Blog
+HTML5
 Name: name or url
 
                             
