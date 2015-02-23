@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8"/>
+		<title> Playing around with docker containers &#187 </title>
+		<!-- For responsive site
+			<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		-->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<link rel="author" href="/humans.txt">
+		<meta name="description" content="Description Goes Here">
+		<link rel="stylesheet" href="/css/style.css">
+		<!--[if IE 7]>
+			<html class="ie7"> 
+			<link rel="stylesheet" type="text/css" href="/css/font-awesome-ie7.min.css">
+		<![endif]-->
+		<!--[if IE 8]><html class="ie8"> <![endif]-->		
+	    <!--[if lt IE 9]>
+	      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	    <![endif]-->
+
+		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="ico/apple-touch-icon-144-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="ico/apple-touch-icon-114-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="ico/apple-touch-icon-72-precomposed.png">
+		<link rel="apple-touch-icon-precomposed" href="ico/apple-touch-icon-57-precomposed.png">
+		<link rel="shortcut icon" href="/ico/blog.png">	
+
+	<style>
+
+		header{text-align: center;}
+
+		.btn{
+			font-size: 12px;
+			line-height: 0.8;
+			border-radius: 3px;color: #333;
+			background-color: #fff;
+			border-color: #ccc;display: inline-block;text-align: center;
+			white-space: nowrap;
+			vertical-align: middle;
+			cursor: pointer;
+			border: 1px solid transparent;
+			margin-top: 5px;
+			margin-left: 2px;
+		}
+
+		.btn i:before{
+			content: " ";
+			display: inline-block;
+			width: 24px;
+			height: 24px;
+		}
+
+		.fa-envelope:before {
+			background: url(/ico/e_mail.png);
+		}
+
+		.fa-twitter:before {
+			background: url(/ico/twitter.png);
+		}
+
+		.fa-github:before {
+			background: url(/ico/github.png);
+		}
+
+		.top-strip{height:5px;}
+	</style>    
+	</head>
+	<body>
+	<!-- Header
+	    ================================================== -->
+	<header>
+	
+      
+      
+      <a type="button" class="btn" href="http://github.com/chandan-nayak">
+        <i class="fa fa-github"></i>
+      </a>
+      
+      
+      <a type="button" class="btn" href="http://twitter.com/cnayak83">
+        <i class="fa fa-twitter"></i>
+      </a>
+      
+      
+      <a type="button" class="btn" href="mailto:chandan.phoenix@gmail.com">
+        <i class="fa fa-envelope"></i>
+      </a>
+      
+	</header>
+	
+
+  <div class="top-strip"></div>
+<main class="content">
+    <section class="container">
+    	<div class="row-fluid">
+    		<article class="home-icon">
+				<a href="/">
+					<i class="icon-home"></i> 
+				</a>
+			</article>
+			<article class="post">
+				<h5>23 February 2015</h5>
+				<h2 class="content">Playing around with docker containers &#187</h2>
+				<section>
+					<p>
+This was the second match between India vs SA live from the beautiful Melbourne Cricket Ground and i was again finding some thing to read while i enjoy the match. Knowing that docker is becoming so popular, I tried to search for some solid hands on content but i could not find many at same place. I will be posting a series of hands on docker stuff here.
+</p>
+<p><br /></p>
+<h4>What is docker and why it is so famous</h4>
+<ul>
+  <li><a href="https://www.docker.com/whatisdocker/#copy1">https://docs.docker.com</a></li>
+  <li><a href="http://opensource.com/resources/what-docker">http://opensource.com/resources/what-docker</a></li>
+  <li><a href="http://www.centurylinklabs.com/what-is-docker-and-when-to-use-it/">http://www.centurylinklabs.com/what-is-docker-and-when-to-use-it/</a></li>
+</ul>
+<p><br /></p>
+<h4>Why docker is good</h4>
+<ol>
+  <li>Easy to make changes</li>
+  <li>Light weight and Fast</li>
+  <li>Segregation of duties</li>
+  <li>Reduced cycle time between code written and code deployed (portable, easy to build and easy to colaborate)</li>
+  <li>Docker encourages service oriented and microservices architectures</li>
+  <li>Flexible application model - It can be distributed where each application/service is connected by a series of containers - easy to scale debug, introspect and apps or it can also run the application inside one system and have many containers running inside it</li>
+</ol>
+<p><br /></p>
+<h4>VM vs Docker</h4>
+<p>Virtual machines try to emnulate virtual hardware, that means they are fat in terms of system requirement. however containers use shared operating systems. Instead of virtualizing they stay on top of a single linux instance. So they can exclude the most of the resources what was needed for VM and still operate. A perfectly tunes container system can hold 4-6 times of applications as a VM can. The key difference between containers and VMs is that while the hypervisor abstracts an entire device, containers just abstract the operating system kernel.This efficiency can turn out to be a huge difference when it comes to the large scale usage of VM on cloud. Cloud heavy infrastructure companies can save a lot using docker.
+<br />
+<br /></p>
+<h4>Docker componenets</h4>
+<ol>
+  <li>Docker comes with docker command line client and a daemon. You can run both on the same machine or connect to a remote daemon on a remote machine</li>
+  <li>Docker images are layred format which uses union file system - It is built step by step following a series of instructions. Containers can be launched form the docker image. Images are like source code for for containers</li>
+  <li>Registries are two types - private and public, <a href="https://hub.docker.com/">dockerhub</a> is the place where you can store your source code, you can also host your own private registry if that is the requirement</li>
+  <li>Containers are launched form images and can contain one or more processes</li>
+</ol>
+<p><br /></p>
+<h4>Install Docker on Ubuntu</h4>
+
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1">#This will install old docker version ~1.0</span>
+<span class="err">$</span> <span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">docker</span><span class="o">.</span><span class="n">io</span>
+<span class="c1">#Installs the latest docker version 1.5</span>
+<span class="err">$</span> <span class="n">curl</span> <span class="o">-</span><span class="n">sSL</span> <span class="ss">https</span><span class="p">:</span><span class="sr">//</span><span class="n">get</span><span class="o">.</span><span class="n">docker</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">ubuntu</span><span class="o">/</span> <span class="o">|</span> <span class="n">sudo</span> <span class="n">sh</span></code></pre></div>
+
+<p>To confirm docker is installed</p>
+
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="err">$</span> <span class="n">docker</span> <span class="o">-</span><span class="n">v</span>
+<span class="no">Docker</span> <span class="n">version</span> <span class="mi">1</span><span class="o">.</span><span class="mi">5</span><span class="o">.</span><span class="mi">0</span><span class="p">,</span> <span class="n">build</span> <span class="n">a8a31ef</span></code></pre></div>
+
+<p><br /></p>
+<h4>Dockerhub login</h4>
+<p>Docker has a lot of useful docker images on dockerhub, to make use of it we need to signin to dockerhub. This is very simillar to github login where we get public repositories for free.</p>
+
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="err">$</span> <span class="n">docker</span> <span class="n">login</span>
+<span class="c1">#Provide username,email and password which you used on dockerhub to signin</span></code></pre></div>
+
+<p><br /></p>
+<h4>Hosting a static page on nginx using docker container</h4>
+<p>We will host a plain static index.html using nginx, we will see how to create an image which downloads nginx and does the configurations needed for us to deploy our index.html. This will also show how to use docker volumes where we will keep our index.html for deployment into the container. Lets check how to do this using docker container on the ubuntu host.
+<br /><br />
+There are two ways we can build an image on docker</p>
+
+<ol>
+  <li>Using a base image from dockerhub &gt; starting the container from the image &gt; manually doing all our needed changes on &gt; Docker commit</li>
+  <li>Create a Dockerfile with all the instructions and build an image from it
+We will follow the option two here as this is the suggested way to do it and this can become a flexible way to do it when the complexity increases. </li>
+</ol>
+
+<p>Lets get started, create our Dockerfile at /opt/static/</p>
+
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="err">$</span> <span class="n">mkdir</span> <span class="o">-</span><span class="nb">p</span> <span class="sr">/opt/s</span><span class="n">tatic</span>
+<span class="err">$</span> <span class="n">touch</span> <span class="sr">/opt/s</span><span class="n">tatic</span><span class="o">/</span><span class="no">Dockerfile</span></code></pre></div>
+
+<p>Dockerfile content</p>
+
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="lineno">1</span> <span class="no">FROM</span> <span class="ss">ubuntu</span><span class="p">:</span><span class="mi">14</span><span class="o">.</span><span class="mo">04</span>
+<span class="lineno">2</span> <span class="no">MAINTAINER</span> <span class="n">chandan</span> <span class="n">nayak</span> <span class="s2">&quot;chandan.nayak@synerzip.com&quot;</span>
+<span class="lineno">3</span> <span class="no">RUN</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">update</span>
+<span class="lineno">4</span> <span class="no">RUN</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="o">-</span><span class="n">yq</span> <span class="n">install</span> <span class="n">nginx</span>
+<span class="lineno">5</span> <span class="no">RUN</span> <span class="n">mkdir</span> <span class="o">-</span><span class="nb">p</span> <span class="sr">/opt/</span><span class="n">page</span><span class="o">/</span>
+<span class="lineno">6</span> <span class="no">ADD</span> <span class="n">global</span><span class="o">.</span><span class="n">conf</span> <span class="sr">/etc/n</span><span class="n">ginx</span><span class="o">/</span><span class="n">conf</span><span class="o">.</span><span class="n">d</span><span class="o">/</span>
+<span class="lineno">7</span> <span class="no">ADD</span> <span class="n">nginx</span><span class="o">.</span><span class="n">conf</span> <span class="sr">/etc/n</span><span class="n">ginx</span><span class="o">/</span><span class="n">nginx</span><span class="o">.</span><span class="n">conf</span>
+<span class="lineno">8</span> <span class="no">EXPOSE</span> <span class="mi">80</span></code></pre></div>
+
+<p>Here is an explanation for what is written in the above Dockerfile</p>
+
+<ol>
+  <li>Line one checks if docker has ubuntu:14.04 image on the local machine, If not it goes on to pull this form dockerhub, this is a trimmed down ubuntu image maintained by docker.</li>
+  <li>Line two just adds the author info to the image</li>
+  <li>Third line RUN command will run any command provided by the user on the new layer and commit the changes, so here it will run apt-get update</li>
+  <li>Fourth line installs nginx in background. -y for noninteractive mode installation</li>
+  <li>Fifth line creates a directory called page under opt - where we will be placing our index.html later using the volume command</li>
+  <li>sixth and seventh adds nginx config files from current Dockerfile directory to targeted directories</li>
+  <li>Last line - EXPOSE informs Docker that the container will listen on the 80 port at runtime</li>
+</ol>
+<p><br /></p>
+
+<p>So, lets get the files in place</p>
+
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="err">$</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">wget</span>
+<span class="err">$</span> <span class="n">cd</span> <span class="sr">/opt/s</span><span class="n">tatic</span><span class="o">/</span>
+<span class="err">$</span> <span class="n">wget</span> <span class="n">global</span><span class="o">.</span><span class="n">conf</span>
+<span class="err">$</span> <span class="n">wget</span> <span class="n">nginx</span><span class="o">.</span><span class="n">conf</span></code></pre></div>
+
+<p><br />
+From this Dockerfile we can build our new image using the docker build command. Lets build the image from this Dockerfile -&gt; note the “.” at the end</p>
+
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="err">$</span> <span class="n">sudo</span> <span class="n">docker</span> <span class="n">build</span> <span class="o">-</span><span class="n">t</span> <span class="n">chandan83</span><span class="o">/</span><span class="n">nginx</span> <span class="o">.</span></code></pre></div>
+
+<p>Run the below command to check current available images</p>
+
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="err">$</span> <span class="n">docker</span> <span class="n">images</span>
+<span class="no">REPOSITORY</span>          <span class="no">TAG</span>                 <span class="no">IMAGE</span> <span class="no">ID</span>            <span class="no">CREATED</span>             <span class="no">VIRTUAL</span> <span class="no">SIZE</span>
+<span class="n">chandan83</span><span class="o">/</span><span class="n">nginx</span>     <span class="n">latest</span>              <span class="n">c7cd7a031f59</span>        <span class="mi">19</span> <span class="n">hours</span> <span class="n">ago</span>        <span class="mi">227</span> <span class="no">MB</span>
+<span class="n">chandan83</span><span class="o">/</span><span class="n">nginx1</span>    <span class="n">latest</span>              <span class="n">c7cd7a031f59</span>        <span class="mi">19</span> <span class="n">hours</span> <span class="n">ago</span>        <span class="mi">227</span> <span class="no">MB</span>
+<span class="o">&lt;</span><span class="n">none</span><span class="o">&gt;</span>              <span class="o">&lt;</span><span class="n">none</span><span class="o">&gt;</span>              <span class="mi">71</span><span class="n">ff56c41526</span>        <span class="mi">19</span> <span class="n">hours</span> <span class="n">ago</span>        <span class="mi">227</span> <span class="no">MB</span>
+<span class="n">ubuntu</span>              <span class="mi">14</span><span class="o">.</span><span class="mo">04</span>               <span class="mi">2</span><span class="n">d24f826cb16</span>        <span class="mi">2</span> <span class="n">days</span> <span class="n">ago</span>          <span class="mi">188</span><span class="o">.</span><span class="mi">3</span> <span class="no">MB</span>
+<span class="n">ubuntu</span>              <span class="mi">14</span><span class="o">.</span><span class="mo">04</span><span class="o">.</span><span class="mi">2</span>             <span class="mi">2</span><span class="n">d24f826cb16</span>        <span class="mi">2</span> <span class="n">days</span> <span class="n">ago</span>          <span class="mi">188</span><span class="o">.</span><span class="mi">3</span> <span class="no">MB</span>
+<span class="n">ubuntu</span>              <span class="n">latest</span>              <span class="mi">2</span><span class="n">d24f826cb16</span>        <span class="mi">2</span> <span class="n">days</span> <span class="n">ago</span>          <span class="mi">188</span><span class="o">.</span><span class="mi">3</span> <span class="no">MB</span>
+<span class="n">ubuntu</span>              <span class="n">trusty</span>              <span class="mi">2</span><span class="n">d24f826cb16</span>        <span class="mi">2</span> <span class="n">days</span> <span class="n">ago</span>          <span class="mi">188</span><span class="o">.</span><span class="mi">3</span> <span class="no">MB</span>
+<span class="n">ubuntu</span>              <span class="n">trusty</span><span class="o">-</span><span class="mi">20150218</span><span class="o">.</span><span class="mi">1</span>   <span class="mi">2</span><span class="n">d24f826cb16</span>        <span class="mi">2</span> <span class="n">days</span> <span class="n">ago</span>          <span class="mi">188</span><span class="o">.</span><span class="mi">3</span> <span class="no">MB</span></code></pre></div>
+
+<p>Use the docker history command to check what actually happened when the image was built</p>
+
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="err">$</span> <span class="n">sudo</span> <span class="n">docker</span> <span class="n">history</span> <span class="n">chandan83</span><span class="o">/</span><span class="n">nginx</span></code></pre></div>
+
+<p>Our Image is ready and we can go on to create our container, before doing that we need to get out index.html file which we want to land on the container’s /opt/page directory at run time</p>
+
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="err">$</span> <span class="n">mkdir</span> <span class="o">-</span><span class="nb">p</span> <span class="sr">/opt/s</span><span class="n">tatic</span><span class="o">/</span><span class="n">website</span>
+<span class="err">$</span> <span class="n">cd</span> <span class="sr">/opt/s</span><span class="n">tatic</span><span class="o">/</span><span class="n">website</span>
+<span class="err">$</span> <span class="n">wget</span> <span class="n">index</span><span class="o">.</span><span class="n">html</span></code></pre></div>
+
+<p>Time to start the container from the image chandan83/nginx, Run the below command to start it</p>
+
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="err">$</span> <span class="n">sudo</span> <span class="n">docker</span> <span class="n">run</span> <span class="o">-</span><span class="n">d</span> <span class="o">-</span><span class="nb">p</span> <span class="mi">80</span> <span class="o">--</span><span class="nb">name</span> <span class="n">static_website</span> <span class="o">-</span><span class="n">v</span> <span class="vg">$PWD</span><span class="o">/</span><span class="ss">website</span><span class="p">:</span><span class="sr">/opt/</span><span class="n">page</span> <span class="n">chandan83</span><span class="o">/</span><span class="n">nginx</span> <span class="n">nginx</span></code></pre></div>
+
+<p>Run this command to see all the containers</p>
+
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="err">$</span> <span class="n">docker</span> <span class="n">ps</span> <span class="o">-</span><span class="n">a</span>
+<span class="no">CONTAINER</span> <span class="no">ID</span>     <span class="no">IMAGE</span>                     <span class="no">COMMAND</span>    <span class="no">PORTS</span>                   <span class="no">NAME</span>
+<span class="mi">2335</span><span class="n">dc83135d</span>     <span class="n">chandan83</span><span class="o">/</span><span class="ss">nginx1</span><span class="p">:</span><span class="n">latest</span>   <span class="s2">&quot;nginx&quot;</span>    <span class="mi">0</span><span class="o">.</span><span class="mi">0</span><span class="o">.</span><span class="mi">0</span><span class="o">.</span><span class="mi">0</span><span class="p">:</span><span class="mi">49166</span><span class="o">-&gt;</span><span class="mi">80</span><span class="o">/</span><span class="n">tcp</span>   <span class="n">static_website</span></code></pre></div>
+
+<p>Our page is up and running, as you can see port 80 in the container is mapped to 49166 on the host, If we access</p>
+
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="ss">localhost</span><span class="p">:</span><span class="mi">49166</span></code></pre></div>
+
+<p>We will be able to access the hosted index.html page</p>
+
+
+					<hr>
+				</section>
+				<section style="font-weight:bold; margin-bottom: 2em;">
+					 
+							<a rel="prev" class="a-hover"href="/2015/02/16/first-post.html"><i class="icon-double-angle-left"></i> Blog using Jekyll and GitHub Pages &#187</a>
+						
+						
+				</section>
+			</article>
+		</div>
+	</section>
+</main>
+
+
+	<footer>
+		<div class="container">
+			Chandan Nayak
+		</div>
+	</footer>
+
+	<!-- Footer
+	    ================================================== -->
+
+	<!-- Javascripts 
+	    ================================================= -->
+	<script src="/js/jquery.min.js"></script>
+	<script src="/js/custom.js"></script>
+
+    <!-- Analytics
+    ================================================== -->
+    <script>
+		// analytics code
+    </script>	
+	</body>
+</html>
