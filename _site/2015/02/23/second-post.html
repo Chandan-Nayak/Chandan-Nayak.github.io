@@ -234,17 +234,48 @@ From this Dockerfile we can build our new image using the docker build command. 
 
 <div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="err">$</span> <span class="n">sudo</span> <span class="n">docker</span> <span class="n">run</span> <span class="o">-</span><span class="n">d</span> <span class="o">-</span><span class="nb">p</span> <span class="mi">80</span> <span class="o">--</span><span class="nb">name</span> <span class="n">static_website</span> <span class="o">-</span><span class="n">v</span> <span class="vg">$PWD</span><span class="o">/</span><span class="ss">website</span><span class="p">:</span><span class="sr">/opt/</span><span class="n">page</span> <span class="n">chandan83</span><span class="o">/</span><span class="n">nginx</span> <span class="n">nginx</span></code></pre></div>
 
+<ul>
+  <li>-p # binds the port to anything on the dost (we can specify a port to bind on host here ex- 127.0.0.1:80:8080)</li>
+  <li>-d # runs the container in detached mode</li>
+  <li>-v # this option allows to create a volume in our container and map it to a directory on the host, so here we have mapped website directory on the host to page directory on the container - so this will provide the index.html which is needed on container at /opt/page directory.</li>
+  <li>note that we have passed nginx command at the end, which generally runs in the daemon mode but becasue we have mentioned “daemon off” in the configuration file this runs in the foreground - which allows the container to run for ever, because the conatiner needs atleast one process running. If no proceee is running it will stop.</li>
+</ul>
+
 <p>Run this command to see all the containers</p>
 
 <div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="err">$</span> <span class="n">docker</span> <span class="n">ps</span> <span class="o">-</span><span class="n">a</span>
 <span class="no">CONTAINER</span> <span class="no">ID</span>     <span class="no">IMAGE</span>                     <span class="no">COMMAND</span>    <span class="no">PORTS</span>                   <span class="no">NAME</span>
 <span class="mi">2335</span><span class="n">dc83135d</span>     <span class="n">chandan83</span><span class="o">/</span><span class="ss">nginx1</span><span class="p">:</span><span class="n">latest</span>   <span class="s2">&quot;nginx&quot;</span>    <span class="mi">0</span><span class="o">.</span><span class="mi">0</span><span class="o">.</span><span class="mi">0</span><span class="o">.</span><span class="mi">0</span><span class="p">:</span><span class="mi">49166</span><span class="o">-&gt;</span><span class="mi">80</span><span class="o">/</span><span class="n">tcp</span>   <span class="n">static_website</span></code></pre></div>
 
-<p>Our page is up and running, as you can see port 80 in the container is mapped to 49166 on the host, If we access</p>
+<p>Our page is up and running, as you can see port 80 in the container is mapped to 49166 (random as we did not mention any port) on the host, If we access</p>
 
 <div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="ss">localhost</span><span class="p">:</span><span class="mi">49166</span></code></pre></div>
 
-<p>We will be able to access the hosted index.html page</p>
+<p>We will be able to access the hosted index.html page
+#<img src="/resources/page.png" alt="My helpful screenshot" />
+<br /><br /></p>
+
+<p>Lets change the content of the index.html on Host website directory (note we are making the changes on host not in the conainer)
+Change the text “Docker” to “Hi Docker” and refresh the browser to see if it reflects !!</p>
+
+<h1 id="my-helpful-screenshotresourcespage1png"><img src="/resources/page1.png" alt="My helpful screenshot" /></h1>
+
+<p><br /><br />
+So the changes worked !!
+<br /><br /></p>
+
+<h4>Few more Docker Commands to play with Containers</h4>
+
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1">#starts docker in debug mode</span>
+<span class="err">$</span> <span class="n">sudo</span> <span class="sr">/usr/</span><span class="n">bin</span><span class="o">/</span><span class="n">docker</span> <span class="o">-</span><span class="n">d</span> <span class="o">-</span><span class="n">D</span> <span class="o">&amp;</span>
+
+<span class="c1">#If you want to login to any running container</span>
+<span class="err">$</span> <span class="n">docker</span> <span class="nb">exec</span> <span class="o">-</span><span class="n">it</span> <span class="n">daemon</span> <span class="sr">/bin/</span><span class="n">bash</span>
+
+<span class="c1">#If you want to check logs of the running container</span>
+<span class="err">$</span> <span class="n">docker</span> <span class="n">logs</span> <span class="n">container</span><span class="o">-</span><span class="nb">name</span>
+<span class="err">$</span> <span class="n">docker</span> <span class="n">logs</span> <span class="o">-</span><span class="n">f</span> <span class="n">container</span><span class="o">-</span><span class="nb">name</span> <span class="p">(</span><span class="k">in</span> <span class="n">tail</span> <span class="n">mode</span><span class="p">)</span>
+<span class="err">$</span> <span class="n">docker</span> <span class="n">logs</span> <span class="o">-</span><span class="n">ft</span> <span class="n">container</span><span class="o">-</span><span class="nb">name</span> <span class="p">(</span><span class="n">adds</span> <span class="n">time</span> <span class="n">stamp</span> <span class="n">to</span> <span class="n">the</span> <span class="n">log</span><span class="p">)</span></code></pre></div>
 
 
 					<hr>

@@ -135,6 +135,11 @@ Time to start the container from the image chandan83/nginx, Run the below comman
 $ sudo docker run -d -p 80 --name static_website -v $PWD/website:/opt/page chandan83/nginx nginx
 {% endhighlight %}
 
+- -p # binds the port to anything on the dost (we can specify a port to bind on host here ex- 127.0.0.1:80:8080)
+- -d # runs the container in detached mode
+- -v # this option allows to create a volume in our container and map it to a directory on the host, so here we have mapped website directory on the host to page directory on the container - so this will provide the index.html which is needed on container at /opt/page directory.
+- note that we have passed nginx command at the end, which generally runs in the daemon mode but becasue we have mentioned "daemon off" in the configuration file this runs in the foreground - which allows the container to run for ever, because the conatiner needs atleast one process running. If no proceee is running it will stop.
+
 Run this command to see all the containers
 {% highlight ruby %}
 $ docker ps -a
@@ -142,11 +147,34 @@ CONTAINER ID     IMAGE                     COMMAND    PORTS                   NA
 2335dc83135d     chandan83/nginx1:latest   "nginx"    0.0.0.0:49166->80/tcp   static_website
 {% endhighlight %}
 
-Our page is up and running, as you can see port 80 in the container is mapped to 49166 on the host, If we access
+Our page is up and running, as you can see port 80 in the container is mapped to 49166 (random as we did not mention any port) on the host, If we access
 {% highlight ruby %}
 localhost:49166
 {% endhighlight %}
 We will be able to access the hosted index.html page
+#![My helpful screenshot]({{ site.url }}/resources/page.png)
+<BR><BR>
 
+Lets change the content of the index.html on Host website directory (note we are making the changes on host not in the conainer)
+Change the text "Docker" to "Hi Docker" and refresh the browser to see if it reflects !!
+
+#![My helpful screenshot]({{ site.url }}/resources/page1.png)
+
+<BR><BR>
+So the changes worked !!
+<BR><BR>
    
+<h4>Few more Docker Commands to play with Containers</h4>
+{% highlight ruby %}
+#starts docker in debug mode
+$ sudo /usr/bin/docker -d -D &
+
+#If you want to login to any running container
+$ docker exec -it daemon /bin/bash
+
+#If you want to check logs of the running container
+$ docker logs container-name
+$ docker logs -f container-name (in tail mode)
+$ docker logs -ft container-name (adds time stamp to the log)
+{% endhighlight %}
 
