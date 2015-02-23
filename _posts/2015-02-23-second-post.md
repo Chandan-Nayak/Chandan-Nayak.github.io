@@ -130,7 +130,7 @@ $ cd /opt/static/website
 $ wget https://github.com/Chandan-Nayak/chandan-nayak.github.io/tree/master/resources/nginx.conf/index.html
 {% endhighlight %}
 
-Time to start the container from the image chandan83/nginx, Run the below command to start it
+Time to start the container from the image "chandan83/nginx". Run the below command to start it
 {% highlight ruby %}
 $ sudo docker run -d -p 80 --name static_website -v $PWD/website:/opt/page chandan83/nginx nginx
 {% endhighlight %}
