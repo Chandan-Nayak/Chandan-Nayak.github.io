@@ -122,7 +122,7 @@ Use the docker history command to check what actually happened when the image wa
 $ sudo docker history chandan83/nginx
 {% endhighlight %}
 
-Our Image is ready and we can go on to create our container, before doing that we need to get our index.html file which we want to land on the container's /opt/page directory at run time
+Our Image is ready and we can go on to create our container, before doing that we need to get our index.html file which we want to land on the container's /opt/page directory at run time. We will keep this file on host's /opt/static/website directory which will be made available inside container using docker's volume feature.
 
 {% highlight ruby %}
 $ mkdir -p /opt/static/website
