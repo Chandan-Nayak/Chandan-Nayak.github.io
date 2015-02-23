@@ -21,7 +21,7 @@ This was the second match between India vs SA live from the beautiful Melbourne 
 6. Flexible application model - It can be distributed where each application/service is connected by a series of containers - easy to scale debug, introspect and apps or it can also run the application inside one system and have many containers running inside it
 <BR>
 <h4>VM vs Docker</h4>
-Virtual machines try to emnulate virtual hardware, that means they are fat in terms of system requirement. however containers use shared operating systems. Instead of virtualizing they stay on top of a single linux instance. So they can exclude the most of the resources what was needed for VM and still operate. A perfectly tunes container system can hold 4-6 times of applications as a VM can. The key difference between containers and VMs is that while the hypervisor abstracts an entire device, containers just abstract the operating system kernel.This efficiency can turn out to be a huge difference when it comes to the large scale usage of VM on cloud. Cloud heavy infrastructure companies can save a lot using docker.
+Virtual machines try to emulate virtual hardware, that means they are fat in terms of system requirement. however containers use shared operating systems. Instead of virtualizing they stay on top of a single linux instance. So they can exclude the most of the resources what was needed for VM and still operate. A perfectly tunes container system can hold 4-6 times of applications as a VM can. The key difference between containers and VMs is that while the hypervisor abstracts an entire device, containers just abstract the operating system kernel.This efficiency can turn out to be a huge difference when it comes to the large scale usage of VM on cloud. Cloud heavy infrastructure companies can save a lot using docker.
 <BR>
 <BR>
 <h4>Docker componenets</h4>
@@ -93,8 +93,8 @@ So, lets get the files in place
 {% highlight ruby %}
 $ apt-get install wget
 $ cd /opt/static/
-$ wget global.conf
-$ wget nginx.conf
+$ wget https://github.com/Chandan-Nayak/chandan-nayak.github.io/tree/master/resources/global.conf
+$ wget https://github.com/Chandan-Nayak/chandan-nayak.github.io/tree/master/resources/nginx.conf
 {% endhighlight %}
 
 <BR>
@@ -127,7 +127,7 @@ Our Image is ready and we can go on to create our container, before doing that w
 {% highlight ruby %}
 $ mkdir -p /opt/static/website
 $ cd /opt/static/website
-$ wget index.html
+$ wget https://github.com/Chandan-Nayak/chandan-nayak.github.io/tree/master/resources/nginx.conf/index.html
 {% endhighlight %}
 
 Time to start the container from the image chandan83/nginx, Run the below command to start it
