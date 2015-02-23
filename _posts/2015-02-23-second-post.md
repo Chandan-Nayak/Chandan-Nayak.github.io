@@ -34,6 +34,7 @@ Virtual machines try to emulate virtual hardware, that means they are fat in ter
 {% highlight ruby%}
 #This will install old docker version ~1.0
 $ sudo apt-get install docker.io
+
 #Installs the latest docker version 1.5
 $ curl -sSL https://get.docker.com/ubuntu/ | sudo sh
 {% endhighlight %}
