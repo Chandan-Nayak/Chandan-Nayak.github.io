@@ -178,4 +178,3 @@ $ docker logs container-name
 $ docker logs -f container-name (in tail mode)
 $ docker logs -ft container-name (adds time stamp to the log)
 {% endhighlight %}
-

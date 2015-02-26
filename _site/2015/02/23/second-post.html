@@ -139,6 +139,7 @@ This was the second match between India vs SA live from the beautiful Melbourne 
 
 <div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1">#This will install old docker version ~1.0</span>
 <span class="err">$</span> <span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">docker</span><span class="o">.</span><span class="n">io</span>
+
 <span class="c1">#Installs the latest docker version 1.5</span>
 <span class="err">$</span> <span class="n">curl</span> <span class="o">-</span><span class="n">sSL</span> <span class="ss">https</span><span class="p">:</span><span class="sr">//</span><span class="n">get</span><span class="o">.</span><span class="n">docker</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">ubuntu</span><span class="o">/</span> <span class="o">|</span> <span class="n">sudo</span> <span class="n">sh</span></code></pre></div>
 
@@ -224,13 +225,13 @@ From this Dockerfile we can build our new image using the docker build command. 
 
 <div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="err">$</span> <span class="n">sudo</span> <span class="n">docker</span> <span class="n">history</span> <span class="n">chandan83</span><span class="o">/</span><span class="n">nginx</span></code></pre></div>
 
-<p>Our Image is ready and we can go on to create our container, before doing that we need to get out index.html file which we want to land on the container’s /opt/page directory at run time</p>
+<p>Our Image is ready and we can go on to create our container, before doing that we need to get our index.html file which we want to land on the container’s /opt/page directory at run time. We will keep this file on host’s /opt/static/website directory which will be made available inside container using docker’s volume feature.</p>
 
 <div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="err">$</span> <span class="n">mkdir</span> <span class="o">-</span><span class="nb">p</span> <span class="sr">/opt/s</span><span class="n">tatic</span><span class="o">/</span><span class="n">website</span>
 <span class="err">$</span> <span class="n">cd</span> <span class="sr">/opt/s</span><span class="n">tatic</span><span class="o">/</span><span class="n">website</span>
 <span class="err">$</span> <span class="n">wget</span> <span class="ss">https</span><span class="p">:</span><span class="sr">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="no">Chandan</span><span class="o">-</span><span class="no">Nayak</span><span class="o">/</span><span class="n">chandan</span><span class="o">-</span><span class="n">nayak</span><span class="o">.</span><span class="n">github</span><span class="o">.</span><span class="n">io</span><span class="o">/</span><span class="n">tree</span><span class="o">/</span><span class="n">master</span><span class="o">/</span><span class="n">resources</span><span class="o">/</span><span class="n">nginx</span><span class="o">.</span><span class="n">conf</span><span class="o">/</span><span class="n">index</span><span class="o">.</span><span class="n">html</span></code></pre></div>
 
-<p>Time to start the container from the image chandan83/nginx, Run the below command to start it</p>
+<p>Time to start the container from the image “chandan83/nginx”. Run the below command to start it</p>
 
 <div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="err">$</span> <span class="n">sudo</span> <span class="n">docker</span> <span class="n">run</span> <span class="o">-</span><span class="n">d</span> <span class="o">-</span><span class="nb">p</span> <span class="mi">80</span> <span class="o">--</span><span class="nb">name</span> <span class="n">static_website</span> <span class="o">-</span><span class="n">v</span> <span class="vg">$PWD</span><span class="o">/</span><span class="ss">website</span><span class="p">:</span><span class="sr">/opt/</span><span class="n">page</span> <span class="n">chandan83</span><span class="o">/</span><span class="n">nginx</span> <span class="n">nginx</span></code></pre></div>
 
@@ -277,7 +278,6 @@ So the changes worked !!
 <span class="err">$</span> <span class="n">docker</span> <span class="n">logs</span> <span class="o">-</span><span class="n">f</span> <span class="n">container</span><span class="o">-</span><span class="nb">name</span> <span class="p">(</span><span class="k">in</span> <span class="n">tail</span> <span class="n">mode</span><span class="p">)</span>
 <span class="err">$</span> <span class="n">docker</span> <span class="n">logs</span> <span class="o">-</span><span class="n">ft</span> <span class="n">container</span><span class="o">-</span><span class="nb">name</span> <span class="p">(</span><span class="n">adds</span> <span class="n">time</span> <span class="n">stamp</span> <span class="n">to</span> <span class="n">the</span> <span class="n">log</span><span class="p">)</span></code></pre></div>
 
-
 					<hr>
 				</section>
 				<section style="font-weight:bold; margin-bottom: 2em;">
@@ -294,7 +294,7 @@ So the changes worked !!
 
 	<footer>
 		<div class="container">
-			Chandan Nayak
+			Chandan Nayak | Page generated at:  2015-02-26 08:14:12 +0530
 		</div>
 	</footer>
 
@@ -310,6 +310,16 @@ So the changes worked !!
     ================================================== -->
     <script>
 		// analytics code
+		<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-60143054-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
     </script>	
 	</body>
 </html>
